@@ -1,0 +1,130 @@
+@import './variables';
+
+form {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 1em;
+    padding-bottom: 0;
+    background-color: black;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+        width: 350px;
+
+
+        label {
+            color: var(--var-primary);
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            margin-top: 0;
+            color: white;
+            text-align: justify
+        }
+
+        .formInput {
+            @include input;
+        }
+
+        .inputError {
+            @include errorContainer;
+        }
+
+    }
+
+    .errorMsj {
+        margin-top: 0;
+        text-align: justify;
+        padding: 0.2em;
+        width: 350px;
+        @include errorContainer;
+    }
+
+    .successMsj {
+        margin-top: 0;
+        text-align: justify;
+        padding: 0.2em;
+        width: 350px;
+        @include successContainer;
+    }
+
+    #errorMsjTitulo {
+        display: none;
+    }
+
+    #errorMsjPrecio {
+        display: none;
+    }
+
+    #errorMsjStock {
+        display: none;
+    }
+
+    #errorMsjImg {
+        display: none;
+    }
+
+    #errorMsjGeneral {
+        display: none;
+    }
+
+    #successMsjGeneral {
+        display: none;
+    }
+
+    #errorMsjNombreFab {
+        display: none;
+    }
+
+    #errorMsjOrigenFab {
+        display: none;
+    }
+
+    #errorMsjGeneralFab {
+        display: none;
+    }
+
+    #successMsjGeneralFab {
+        display: none;
+    }
+
+    .numeros {
+        flex-direction: row;
+        align-items: baseline;
+
+        label {
+            margin: 0 0.5em 0 0;
+            white-space: nowrap;
+        }
+
+        .formInput {
+            width: 100%;
+        }
+
+
+    }
+
+    #submit {
+        display: flex;
+        align-items: flex-end;
+
+
+        .formInput {
+            width: 150px;
+            height: 2em;
+            background-color: var(--var-secondary);
+            color: black;
+            font-family: "Chakra Petch", sans-serif;
+
+            &:hover {
+                background-color: var(--var-highlight);
+            }
+        }
+    }
+}

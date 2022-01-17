@@ -1,0 +1,63 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,500;1,300;1,500;1,700&family=Indie+Flower&family=Roboto+Mono:ital,wght@0,100;0,400;1,100;1,400&display=swap");
+
+:root {
+    --var-primary: #d09900;
+    --var-secondary: #d099d0;
+    --var-highlight: #feee00;
+    --var-success: #1d8719;
+    --var-success-dark: #0c5309;
+    --var-success-light: #48d643;
+
+    --var-danger: #c90000;
+    --var-danger-dark: #610101;
+    --var-danger-light: #f33b3b;
+}
+
+@mixin btnsContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    height: 60px;
+}
+
+@mixin btn {
+    font-size: 1.4em;
+    // height: 100%;
+    width: 150px;
+    text-align: center;
+    margin: 0;
+    flex-shrink: 0;
+    border: none;
+    cursor: pointer;
+}
+
+@mixin input {
+    font-size: 1.2em;
+    border: none;
+    font-family: 'Chakra Petch', sans-serif;
+    letter-spacing: 0.1em;
+
+    &:hover {
+        background-color: gainsboro;
+    }
+
+    &:focus {
+        outline: none;
+        border: var(--var-primary) 1px solid;
+        box-shadow: -3px 5px var(--var-primary);
+    }
+}
+
+@mixin errorContainer {
+    color: var(--var-danger-dark);
+    background-color: var(--var-danger-light);
+    border: solid 1px var(--var-danger);
+}
+
+@mixin successContainer {
+    color: var(--var-success-dark);
+    background-color: var(--var-success-light);
+    border: solid 1px var(--var-success);
+}

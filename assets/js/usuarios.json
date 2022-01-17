@@ -1,0 +1,22 @@
+[
+    {
+    "id": 1,
+    "nombres":"Martín",
+    "apellidos":"Fernandez",
+    "genero":"Hombre",
+    "rango":"administrador",
+    "nacimiento":"25/05/1985",
+    "user":"martincho03",
+    "pass":"Tincho.03"
+    },
+    {
+    "id": 2,
+    "nombres":"Julieta",
+    "apellidos":"Zanetti",
+    "genero":"Mujer",
+    "rango":"cliente",
+    "nacimiento":"02/12/1992",
+    "user":"julietazanetti",
+    "pass":"14Juli"
+    }
+]

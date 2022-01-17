@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripts</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+
+    <header>
+        <h1>Tienda</h1>
+        
+    </header>
+
+    <section id="containerMenu">
+
+        <div class="menuBtn defaultColor" id="btnProducto">
+            <p>Agregar un nuevo producto</p>
+        </div>
+        <div id="formProducto">
+            <form>
+                <div>
+                    <label for="nombreProd">Nombre del producto:</label>
+                    <input type="text" id="nombreProd" name="nombreProd" class="formInput" autofocus>
+                </div>
+                <p id="errorMsjTitulo" class="errorMsj">El nombre del producto solo admite letras, números, guiones, comas y puntos y debe contener entre 7 y 25 caracteres.</p>
+                <div class="numeros">
+                    <label for="precio">Precio: U$D</label>
+                    <input type="text" id="precio" name="precio" min="1" class="formInput">
+                </div>
+                <p id="errorMsjPrecio" class="errorMsj">El precio solo debe incluir números, comas o puntos.</p>
+                <div class="numeros">
+                    <label for="stock">Stock: </label>
+                    <input type="text" id="stock" name="stock" min="1" class="formInput">
+                </div>
+                <p id="errorMsjStock" class="errorMsj">El stock solo debe incluir números enteros.</p>
+                <div>
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria" name="categoria" class="formInput">
+                        <option value=""></option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Gabinete">Gabinete</option>
+                        <option value="Fuente">Fuente</option>
+                        <option value="Microprocesador">Microprocesador</option>
+                        <option value="Placa de video">Placa de video</option>
+                        <option value="Teclado">Teclado</option>
+                        <option value="Mouse">Mouse</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="fabricante">Fabricante:</label>
+                    <select id="fabricante" name="fabricante" class="formInput">
+                        <!-- Se autocompletaa de manera dinámica (formsdeCarga -> refreshProductsFabs()) -->
+                    </select>
+                </div>
+                <div>
+                    <label for="localImg">Imagen JPG:</label>
+                    <p>Colocar el nombre del archivo. Recordar guardar la imagen en la carpeta productos.</p>
+                    <input type="text" id="localImg" name="localImg" class="formInput">
+                </div>
+                <p id="errorMsjImg" class="errorMsj">La imagen debe contener su extensión, no debe tener espacios y solo se admiten archivos .jpg</p>
+                <p id="errorMsjGeneral" class="errorMsj">Asegúrese de rellenar todos los campos correctamente.</p>
+                <p id="successMsjGeneral" class="successMsj">El producto ha sido cargado con éxito.</p>
+                <div id="submit">
+                    <input type="submit" class="formInput" value="Guardar" >
+                </div>
+            </form>
+        </div>
+
+        <div class="menuBtn defaultColor" id="btnFabricante">
+            <p>Agregar un nuevo fabricante</p>
+        </div>
+        <div id="formFabricante">
+            <form>
+                <div>
+                    <label for="nombreFabricante">Nombre del fabricante:</label>
+                    <input type="text" id="nombreFabricante" name="nombreFabricante" class="formInput" autofocus>
+                </div>
+                <p id="errorMsjNombreFab" class="errorMsj">El nombre del fabricante solo debe incluir letras.</p>
+                <div>
+                    <label for="origen">Origen:</label>
+                    <input type="text" id="origen" name="origen" class="formInput">
+                </div>
+                <p id="errorMsjOrigenFab" class="errorMsj">El origen del fabricante solo debe incluir letras.</p>
+                <div>
+                    <label for="infoFabricante">Información adicional:</label>
+                    <textarea id="infoFabricante" name="infoFabricante" class="formInput" cols="30" rows="10"></textarea>
+                </div>
+                <p id="errorMsjGeneralFab" class="errorMsj">Asegúrese de rellenar todos los campos correctamente.</p>
+                <p id="successMsjGeneralFab" class="successMsj">El fabricante ha sido cargado con éxito.</p>
+                <div id="submit"><input type="submit" class="formInput" value="Guardar" ></div>
+            </form>
+        </div>
+
+        <div class="menuBtn defaultColor" id="mostrarProductosBtn">
+            <p>Ver productos registrados</p>
+        </div>
+        <div class="menuBtn defaultColor" id="borrarProductosBtn">
+            <p>Borrar productos registrados</p>
+        </div>
+        <div class="menuBtn defaultColor">
+            <p><a href="./index.html">Vista Cliente</a></p>
+        </div>
+    </section>
+    <section id="containerProductos">
+        <!-- Se autocompleta de forma dinámica -->
+    </section>
+
+
+    <!-- Modal template-->
+    <template id="modalTemplate">
+        <div class="modal">
+            <div class="modal-content">
+                <i class="fas fa-times"></i>
+                <p>El producto será eliminado de manera permanente</p>
+                <div class="btnsContainer">
+                    <button class="aceptarBtn">Aceptar</button>
+                    <button class="cancelarBtn">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- Card template -->
+    <template id="cardProductoTemplate">
+        <div class = "temporalCard">
+            <div class="temporalCard__text">
+                <h3> ${producto.nombre}</h3>
+                <p> ${producto.tipo} Fabricante: ${producto.fabricante}</p>
+                <h4> $${producto.precio} </h4>
+            </div>
+            <div class="temporalCard__btns">
+                <button class="stockBtn"><p >Renovar <br> Stock</p></button>
+                <form action="" class="stockForm">
+                    <label for="unidades">Unidades</label>
+                    <input type="number" name="unidades" id="unidades">
+                </form>
+                <button class="deleteBtn"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
+
+    </template>
+    
+    <script src="https://kit.fontawesome.com/1d0f8105a2.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./assets/js/clases.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/formProductos.js"></script>
+    <script src="./assets/js/formFabricantes.js"></script>
+    <script src="./assets/js/cardsProductosAdmin.js"></script>
+</body>
+</html>

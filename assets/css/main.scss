@@ -1,0 +1,249 @@
+@import './variables';
+@import './login';
+@import './form';
+@import './client';
+@import './signin.scss';
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--var-primary);
+    font-family: "Chakra Petch", sans-serif;
+    font-family: "Indie Flower", cursive;
+    font-family: "Roboto Mono", monospace;
+}
+
+header {
+    margin: 3em;
+
+    h1 {
+        font-size: 4em;
+        margin: 0;
+    }
+
+}
+
+#containerMenu {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2em;
+
+    .menuBtn {
+        margin: 1em;
+        width: 450px;
+        height: 70px;
+        box-shadow: -15px 10px black;
+        cursor: pointer;
+
+        p {
+            margin-top: 0.8em;
+            font-size: 1.5em;
+            text-align: center;
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+
+    }
+
+    .defaultColor {
+        background-color: var(--var-secondary);
+
+        p {
+            color: white;
+        }
+    }
+
+    .highlightColor {
+        background: linear-gradient(to right,
+                var(--var-highlight),
+                var(--var-highlight) 50%,
+                var(--var-secondary) 50%);
+        background-size: 200% 100%;
+        animation: load 1s ease forwards;
+
+        p {
+            color: black;
+        }
+    }
+
+    #formProducto {
+
+        display: none;
+    }
+
+    #formFabricante {
+
+        display: none;
+    }
+
+
+}
+
+#containerProductos {
+
+    max-width: 1400px;
+    margin: 1em;
+    // margin-right: auto;
+    // margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+
+    .temporalCard {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: var(--var-highlight);
+        border: solid 5px black;
+        flex-shrink: 0;
+        width: 300px;
+        margin: 1em;
+
+
+        .temporalCard__text {
+            padding: 0 1em;
+        }
+
+        .temporalCard__btns {
+            @include btnsContainer;
+
+            .stockBtn {
+                background-color: black;
+                color: var(--var-highlight);
+                @include btn;
+
+                p {
+                    margin: 0;
+                }
+
+            }
+
+            .stockForm {
+                width: 100%;
+                padding: 0 0.5em;
+                flex-shrink: 1;
+                display: none;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+
+                label {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                input {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                }
+            }
+
+            .deleteBtn {
+                align-self: flex-end;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 60px;
+                height: 100%;
+                background-color: red;
+                flex-shrink: 0;
+                border: none;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                i {
+                    font-size: 40px;
+                    color: var(--var-highlight);
+                }
+            }
+
+
+        }
+    }
+}
+
+
+.modal {
+    display: block;
+    position: fixed;
+    margin: 0;
+    z-index: 999;
+    padding: 0;
+    right: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vw;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .modal-content {
+        background-color: var(--var-highlight);
+        margin: auto;
+        padding: 20px;
+        margin-top: 25vh;
+        border: 5px solid black;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        i {
+
+            color: black;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        p {
+            text-align: center;
+            align-self: center;
+            font-size: 1.5em
+        }
+
+        .btnsContainer {
+            @include btnsContainer;
+            margin-top: 0.8em;
+
+            button {
+                @include btn;
+                font-weight: 700;
+                margin-left: 1em;
+            }
+
+            .aceptarBtn {
+                background-color: var(--var-success);
+            }
+
+            .cancelarBtn {
+                background-color: var(--var-danger);
+            }
+
+        }
+    }
+
+}
+
+
+
+
+@keyframes load {
+    0% {
+        background-position: 100% 0%
+    }
+
+    100% {
+        background-position: 0% 0%
+    }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Cliente</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+<nav class="navBar">
+    <a href="#" class="logo">
+        <h1>tu pc gamer</h1>
+        <img src="./assets/img/logotipo.svg" alt="">
+    </a>
+    <ul class="links">
+        <li>productos</li>
+        <li>contacto</li>
+        <li id="vistaEdicion"><a href="./vistaEdicion.html">vista Edición</a></li>
+        <li id="logout">Cerrar sesión</li>
+    </ul>
+    <div id="user">
+        <a href="./login.html" id="login">Iniciar Sesión</a>
+        <a href="./signin.html" id="signin">Registrarse</a>
+        <div id="cart">
+            <i class="fas fa-shopping-cart"></i>
+            <p id="cantidadProductos"></p>
+            <div id="list">
+                <ul>
+    
+                </ul>
+                <div>
+                    <button id="finalizarCompra">Finalizar<br>compra</button>
+                    <button id="borrarCompra">Borrar<br>compra</button>
+                </div>
+            </div>
+        </div>
+        <div id="profile">
+            <p>Nombre de Usuario</p>
+            <div class="img"></div>
+        </div>
+    </div>
+</nav>
+
+<h2>Productos</h2>
+<main>
+    <div class="filters">
+        <h3 id="clearFilters">Mostrar todo</h3>
+        <ul>
+            <li>Microprocesador</li>
+            <li>Placa</li>
+            <li>Fuente</li>
+            <li>Gabinete</li>
+        </ul>
+    </div>
+    <div class="productsContainer">
+
+    </div>
+</main>
+
+    <!-- Card teplate para cliente -->
+    <template id="cardProductoClienteTemplate">
+    <div class="productsContainer__card">
+        <img src="" alt="" class="productsContainer__img">
+        <div class="productsContainer__text">
+            <a href="#" class="productsContainer__Title">Título</a>
+            <p>tags</p>
+            <h4>precio</h4>
+            <button>Agregar al carrito</button>
+        </div>
+    </div>
+    </template>
+
+    <!-- Modal template-->
+    <template id="modalTemplate">
+        <div class="modal">
+            <div class="modal-content">
+                <i class="fas fa-times"></i>
+                <ul></ul>
+                <h3></h3>
+                <p></p>
+                <div class="btnsContainer">
+                    <button class="aceptarBtn">Aceptar</button>
+                    <button class="cancelarBtn">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://kit.fontawesome.com/1d0f8105a2.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./assets/js/clases.js"></script>
+    <script src="./assets/js/navbar.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/productosUsuario.js"></script>
+</body>
+</html>

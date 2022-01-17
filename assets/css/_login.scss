@@ -1,0 +1,79 @@
+@import './variables';
+
+.loginHeader {
+    display: flex;
+    background-color: var(--var-highlight);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex-end;
+    padding: 1em;
+
+    h1 {
+        font-family: 'Chakra Petch', sans-serif;
+        font-weight: 700;
+        font-style: italic;
+        font-size: 9.5em;
+        line-height: 0.8em;
+
+
+    }
+
+    img {
+        width: 380px;
+        height: auto;
+        margin-bottom: 0.5em;
+    }
+}
+
+
+.loginContainer {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5em;
+    background-color: var(--var-secondary);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 1em;
+    margin-bottom: 5em;
+
+    label {
+        font-weight: 700;
+        font-size: 1.2em;
+        letter-spacing: 0.3em;
+        margin-bottom: 0.8em
+    }
+
+    input {
+        @include input;
+        margin-bottom: 1em
+    }
+
+    #errorMsj {
+        display: none;
+        margin-top: 0;
+        text-align: justify;
+        padding: 0.2em;
+        @include errorContainer;
+
+        a {
+            color: black;
+        }
+    }
+
+    .logBtn {
+        align-self: flex-end;
+        padding: 0.5em;
+        margin: 0;
+        background-color: black;
+        color: white;
+
+        &:hover {
+            background-color: var(--var-highlight);
+            color: black;
+            font-weight: bold;
+        }
+    }
+}
